@@ -1,0 +1,20 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  
+  "instructions": [
+    "memory/profile/facts.L0.md",
+    "memory/profile/preferences.L0.md",
+    "memory/insights/insights.L0.md"
+  ],
+
+  "agent": {
+    "build": {
+      "mode": "primary",
+      "prompt": "你是用户的得力助手。按照 AGENTS.md 中的配置工作。先规划后执行，优先现成方案，简洁直接。"
+    },
+    "plan": {
+      "mode": "primary",
+      "temperature": 0.1
+    }
+  }
+}
