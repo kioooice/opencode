@@ -4,8 +4,7 @@ __pycache__/
 *.pyo
 
 # Vector database (runtime)
-memory/.vectors/memory.db
-memory/.vectors/learning.json
+memory/.vectors/
 
 # OS
 .DS_Store
