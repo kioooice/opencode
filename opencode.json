@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  
+
   "instructions": [
     "memory/profile/facts.L0.md",
     "memory/profile/preferences.L0.md",

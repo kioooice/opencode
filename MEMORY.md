@@ -2,9 +2,9 @@
 
 这是我的长期记忆中枢。每次主会话启动时会自动加载。
 
-## 记忆系统架构 v3.0
+## 记忆系统架构 v3.1
 
-融合 **MemoryOS 论文** + **OpenViking 分层加载**：
+融合 **MemoryOS 论文** + **OpenViking 分层加载** + **Ruflo RuVector**：
 
 ```
 memory/
@@ -27,8 +27,69 @@ memory/
 │   ├── insights.L0.md
 │   └── cases/         → 问题+解决方案
 ├── experiences/       → 原始记录（每日）
+├── .vectors/          → 向量索引（HNSW + SQLite）
+│   ├── memory.db      → 向量数据库
+│   └── learning.json  → 自学习系统
 └── archive/           → 归档
 ```
+
+### 向量记忆系统
+
+```bash
+# 索引 memory 目录文件
+python scripts/vector_memory.py index
+
+# 语义搜索
+python scripts/vector_memory.py search "用户偏好"
+python scripts/vector_memory.py search "最近的错误" --namespace files
+
+# 存储记忆
+python scripts/vector_memory.py store "key" "value" "namespace"
+
+# 查看状态
+python scripts/vector_memory.py status
+```
+
+### 自学习系统（EWC++）
+
+```bash
+# 学习成功模式
+python scripts/self_learning.py learn "模式内容" success
+
+# 学习失败教训
+python scripts/self_learning.py learn "错误模式" failure
+
+# 查看已学模式
+python scripts/self_learning.py patterns
+
+# 保护重要模式
+python scripts/self_learning.py protect <id>
+
+# 整合学习成果
+python scripts/self_learning.py consolidate
+
+# 查看统计
+python scripts/self_learning.py stats
+```
+
+### 自动学习
+
+```bash
+# 从今天经历中学习
+python scripts/auto_learn.py
+
+# 从近 3 天经历中学习
+python scripts/auto_learn.py --days 3
+
+# 预览不执行
+python scripts/auto_learn.py --dry-run
+```
+
+**触发时机**：
+- 用户请求"结束会话"/"总结"
+- 每日心跳时自动执行
+- 手动运行脚本
+- 长期未用的模式自动衰减
 
 ## 启动加载流程
 

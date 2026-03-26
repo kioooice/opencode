@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Vector database (runtime)
+memory/.vectors/memory.db
+memory/.vectors/learning.json
+
+# OS
+.DS_Store
+Thumbs.db

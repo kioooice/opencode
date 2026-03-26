@@ -83,20 +83,23 @@ memory/
 **语义搜索，不是关键词匹配**
 
 ```bash
+# Python 路径（Windows）
+PY="/c/Users/Administrator/AppData/Local/Programs/Python/Python314/python.exe"
+
 # 建立索引
-python scripts/vector_memory.py index
+$PY scripts/vector_memory.py index
 
 # 语义搜索
-python scripts/vector_memory.py search "用户偏好"
-python scripts/vector_memory.py search "最近的错误"
+$PY scripts/vector_memory.py search "用户偏好"
+$PY scripts/vector_memory.py search "最近的错误"
 
 # 查看状态
-python scripts/vector_memory.py status
+$PY scripts/vector_memory.py status
 ```
 
 **特点**：
 - HNSW 索引，150x+ 搜索加速
-- 本地 ONNX 模型（3ms 嵌入）
+- 本地 TF-IDF 嵌入（无需外部模型）
 - 自动索引 memory/ 目录
 
 ### 🧠 自学习系统（NEW）
@@ -104,23 +107,26 @@ python scripts/vector_memory.py status
 **自动学习模式，EWC++ 防遗忘**
 
 ```bash
+# Python 路径（Windows）
+PY="/c/Users/Administrator/AppData/Local/Programs/Python/Python314/python.exe"
+
 # 学习成功模式
-python scripts/self_learning.py learn "模式内容" success
+$PY scripts/self_learning.py learn "模式内容" success
 
 # 学习失败教训
-python scripts/self_learning.py learn "错误模式" failure
+$PY scripts/self_learning.py learn "错误模式" failure
 
 # 查看已学模式
-python scripts/self_learning.py patterns
+$PY scripts/self_learning.py patterns
 
 # 保护重要模式
-python scripts/self_learning.py protect <id>
+$PY scripts/self_learning.py protect <id>
 
 # 整合学习成果
-python scripts/self_learning.py consolidate
+$PY scripts/self_learning.py consolidate
 
 # 查看统计
-python scripts/self_learning.py stats
+$PY scripts/self_learning.py stats
 ```
 
 **EWC++ 机制**：
@@ -134,13 +140,16 @@ python scripts/self_learning.py stats
 **会话结束时自动记录学习**
 
 ```bash
+# Python 路径（Windows）
+PY="/c/Users/Administrator/AppData/Local/Programs/Python/Python314/python.exe"
+
 # 手动触发会话结束学习
-python scripts/session_end_hook.py
+$PY scripts/session_end_hook.py
 
 # 或分开执行：
-python scripts/auto_learn.py              # 从今天经历中学习
-python scripts/auto_learn.py --days 3     # 从近 3 天经历中学习
-python scripts/auto_learn.py --dry-run    # 预览不执行
+$PY scripts/auto_learn.py              # 从今天经历中学习
+$PY scripts/auto_learn.py --days 3     # 从近 3 天经历中学习
+$PY scripts/auto_learn.py --dry-run    # 预览不执行
 ```
 
 **自动提取内容**：
