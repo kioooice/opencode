@@ -36,16 +36,20 @@ Don't ask permission. Just do it.
 - 重要信息写入 memory/ 目录即可
 
 ### 关闭前（用户请求时）
-```powershell
-git add .
-git commit -m "sync: session end"
-git push
+```bash
+bash scripts/memory-sync.sh "今天做了 xxx"
 ```
 
-### 下次启动网关后
-```powershell
+### 换电脑（启动时）
+```bash
+# 首次：拉取仓库
 git pull
+
+# 日常：只拉取 memory/（更快）
+bash scripts/mem-pull.sh
 ```
+
+> 冲突自动处理：`.gitattributes` 设置 markdown/json 冲突保留两边
 
 ### 验证检查
 问："我的 GitHub 是什么？最近在做什么？"
