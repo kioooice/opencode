@@ -1,0 +1,8 @@
+# memory/ 下 markdown 文件：冲突时保留两边
+memory/**/*.md merge=union
+
+# JSON 文件：冲突时保留两边
+memory/**/*.json merge=union
+
+# .gitkeep 保持默认
+memory/**/.gitkeep merge=text
